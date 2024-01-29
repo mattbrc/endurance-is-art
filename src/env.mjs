@@ -17,8 +17,6 @@ export const env = createEnv({
     NODE_ENV: z
       .enum(["development", "test", "production"])
       .default("development"),
-    STRAVA_CLIENT_ID: z.string(),
-    STRAVA_CLIENT_SECRET: z.string(),
   },
 
   /**
@@ -37,8 +35,6 @@ export const env = createEnv({
   runtimeEnv: {
     DATABASE_URL: process.env.DATABASE_URL,
     NODE_ENV: process.env.NODE_ENV,
-    STRAVA_CLIENT_ID: process.env.STRAVA_CLIENT_ID,
-    STRAVA_CLIENT_SECRET: process.env.STRAVA_CLIENT_SECRET,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially
