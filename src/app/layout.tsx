@@ -5,6 +5,7 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { cn } from "~/lib/utils";
 import { Toaster } from "react-hot-toast";
+import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata = {
   title: "Endurance is Art",
@@ -18,21 +19,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <body className={cn("min-h-screen antialiased")}>
-        <TRPCReactProvider>
-          <Toaster
-            toastOptions={{
-              className: "",
-              style: {
-                background: "#27272A",
-                color: "#fff",
-              },
-            }}
-          />
-          {children}
-        </TRPCReactProvider>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+        <body className={cn("min-h-screen antialiased")}>
+          <TRPCReactProvider>
+            <Toaster
+              toastOptions={{
+                className: "",
+                style: {
+                  background: "#27272A",
+                  color: "#fff",
+                },
+              }}
+            />
+            {children}
+          </TRPCReactProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

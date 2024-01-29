@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { MainNav } from "@/components/main-nav";
 import { SiteFooter } from "~/components/site-footer";
 import { MenuDropdown } from "~/components/menu-dropdown";
+import { UserButton } from "@clerk/nextjs";
 
 interface DashboardLayoutProps {
   children?: React.ReactNode;
@@ -16,6 +17,7 @@ export default async function DashboardLayout({
         <div className="header-bg container flex h-16 items-center justify-between py-4">
           <MenuDropdown />
           <MainNav />
+          <UserButton afterSignOutUrl="/" />
         </div>
       </header>
       <div>

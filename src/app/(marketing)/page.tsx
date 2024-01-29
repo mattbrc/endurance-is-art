@@ -19,7 +19,7 @@ export default async function Home() {
         </h1>
         <p>Custom strava heatmap art designed around your routes</p>
         <Link
-          href="/login"
+          href="/home"
           className={cn(buttonVariants({ variant: "default" }), "px-4")}
         >
           Get Started
