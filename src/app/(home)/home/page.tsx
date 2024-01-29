@@ -1,4 +1,3 @@
-import { currentUser } from "@clerk/nextjs";
 import { Separator } from "~/components/ui/separator";
 import { Button } from "~/components/ui/button";
 import { api } from "~/trpc/server";
@@ -9,7 +8,6 @@ export const metadata = {
 };
 
 export default async function Page() {
-  const user = await currentUser();
   // const data = await api.wod.getLatest.query();
 
   return (

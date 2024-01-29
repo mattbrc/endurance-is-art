@@ -1,4 +1,3 @@
-import { auth, currentUser } from "@clerk/nextjs";
 import { unstable_noStore as noStore } from "next/cache";
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -11,12 +10,6 @@ import { api } from "~/trpc/server";
 export default async function Home() {
   noStore();
   // const hello = await api.post.hello.query({ text: "from tRPC" });
-  const user = await currentUser();
-  const { userId } = auth();
-
-  if (userId) {
-    redirect("/home");
-  }
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center">
@@ -26,7 +19,7 @@ export default async function Home() {
         </h1>
         <p>Custom strava heatmap art designed around your routes</p>
         <Link
-          href="/sign-in"
+          href="/login"
           className={cn(buttonVariants({ variant: "default" }), "px-4")}
         >
           Get Started

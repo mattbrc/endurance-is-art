@@ -1,7 +1,6 @@
 import "~/styles/globals.css";
 
 import { TRPCReactProvider } from "~/trpc/react";
-import { ClerkProvider } from "@clerk/nextjs";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { cn } from "~/lib/utils";
@@ -19,23 +18,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider>
-      <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
-        <body className={cn("min-h-screen antialiased")}>
-          <TRPCReactProvider>
-            <Toaster
-              toastOptions={{
-                className: "",
-                style: {
-                  background: "#27272A",
-                  color: "#fff",
-                },
-              }}
-            />
-            {children}
-          </TRPCReactProvider>
-        </body>
-      </html>
-    </ClerkProvider>
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+      <body className={cn("min-h-screen antialiased")}>
+        <TRPCReactProvider>
+          <Toaster
+            toastOptions={{
+              className: "",
+              style: {
+                background: "#27272A",
+                color: "#fff",
+              },
+            }}
+          />
+          {children}
+        </TRPCReactProvider>
+      </body>
+    </html>
   );
 }
