@@ -8,11 +8,15 @@ import { getStravaAuthUrl } from "~/lib/strava";
 export default function Strava() {
   // const notify = () => toast.success("Strava successfully connected!");
   return (
-    <div className="container flex flex-col items-center justify-center gap-1 border border-red-400 px-4 py-6">
-      <h2 className="font-mono text-xl font-extrabold">Step 1:</h2>
+    <div>
       <Link href={getStravaAuthUrl()}>
         <Button>Connect Strava</Button>
       </Link>
     </div>
   );
+}
+
+export function StravaConnected() {
+  // const notify = () => toast.success("Strava successfully connected!");
+  return <Button disabled={true}>✅ Strava Connected</Button>;
 }

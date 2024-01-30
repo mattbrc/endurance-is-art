@@ -2,16 +2,29 @@ import { Separator } from "~/components/ui/separator";
 import { Button } from "~/components/ui/button";
 import { api } from "~/trpc/server";
 import Strava from "~/components/strava";
+import { StravaConnected } from "~/components/strava";
+import { currentUser } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
+import Link from "next/link";
 
 export const metadata = {
   title: "Studio - Home",
 };
 
 export default async function Page() {
-  const hello = await api.post.hello.query({ text: "world" });
-  console.log("hello: ", hello);
-  const user = await api.strava.getLatestUser.query();
-  console.log("user: ", user);
+  const user = await currentUser();
+  if (!user) {
+    redirect("/");
+  }
+  const query = await api.strava.getUser.query({
+    userId: `${user.id}`,
+  });
+  if (query[0] !== undefined) {
+    console.log("user: ", query[0].refreshToken);
+  } else {
+    console.log("no user found");
+  }
+
   return (
     <div className="container flex flex-col items-center justify-center gap-6 px-4 py-6">
       <h1 className="text-3xl font-bold">Endurance is Art</h1>
@@ -28,7 +41,14 @@ export default async function Page() {
         </ul>
       </div>
       <Separator />
-      <Strava />
+      <div className="container flex flex-col items-center justify-center gap-1 px-4 py-6">
+        <h2 className="font-mono text-xl font-extrabold">Step 1:</h2>
+        {query[0] ? <StravaConnected /> : <Strava />}
+        <h2 className="font-mono text-xl font-extrabold">Step 2:</h2>
+        <Link href="/home/heatmap">
+          <Button>View Heatmaps</Button>
+        </Link>
+      </div>
     </div>
   );
 }

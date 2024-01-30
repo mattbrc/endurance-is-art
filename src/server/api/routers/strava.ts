@@ -18,15 +18,15 @@ export const stravaRouter = createTRPCRouter({
       });
     }),
 
-  // getUser: publicProcedure.query(({ ctx }) => {
-  //   const userId = ctx.auth.userId;
-  //   return ctx.db.select({ 
-  //     id: users.id,
-  //     stravaId: users.stravaId,
-  //     refreshToken: users.refreshToken
-  // }).from(users)
-  //   .where(sql`${users.id} = ${userId}`);
-  // }),
+  getUser: publicProcedure
+    .input(z.object({ userId: z.string().min(1) }))
+    .query(({ ctx, input }) => {
+      return ctx.db.select({ 
+        stravaId: users.stravaId,
+        refreshToken: users.refreshToken,
+    }).from(users)
+      .where(sql`${users.id} = ${input.userId}`);
+  }),
 
   getLatest: publicProcedure.query(({ ctx }) => {
     return ctx.db.query.posts.findFirst({
