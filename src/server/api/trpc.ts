@@ -9,6 +9,7 @@
 import { initTRPC } from "@trpc/server";
 import superjson from "superjson";
 import { ZodError } from "zod";
+import { getAuth } from "@clerk/nextjs/server";
 
 import { db } from "~/server/db";
 
@@ -74,3 +75,4 @@ export const createTRPCRouter = t.router;
  * are logged in.
  */
 export const publicProcedure = t.procedure;
+

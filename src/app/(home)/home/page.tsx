@@ -8,8 +8,8 @@ export const metadata = {
 };
 
 export default async function Page() {
-  // const data = await api.wod.getLatest.query();
-
+  // const user = await api.strava.getUser.query();
+  // console.log("user: ", user);
   return (
     <div className="container flex flex-col items-center justify-center gap-6 px-4 py-6">
       <h1 className="text-3xl font-bold">Endurance is Art</h1>
@@ -19,7 +19,7 @@ export default async function Page() {
       <div>
         <h2 className="font-mono font-extrabold">Steps:</h2>
         <ul>
-          <li>1. Connect your Strava Account</li>
+          <li>1. Connect Strava</li>
           <li>2. View your heatmaps</li>
           <li>3. Choose and customize a heatmap</li>
           <li>4. Choose a canvas size and order</li>
