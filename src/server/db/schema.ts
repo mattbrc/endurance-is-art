@@ -38,7 +38,10 @@ export const users = createTable(
   {
     id: varchar("userID", { length: 256} ).primaryKey(),
     stravaId: bigint("stravaId", { mode: "number" }),
-    refreshToken: varchar("refreshToken", {length: 256})
+    refreshToken: varchar("refreshToken", {length: 256}),
+    createdAt: timestamp("created_at")
+      .default(sql`CURRENT_TIMESTAMP`)
+      .notNull()
   },
   (users) => ({
     idIdx: index("user_idx").on(users.id),

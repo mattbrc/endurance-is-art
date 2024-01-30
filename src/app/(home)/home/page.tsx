@@ -8,8 +8,10 @@ export const metadata = {
 };
 
 export default async function Page() {
-  // const user = await api.strava.getUser.query();
-  // console.log("user: ", user);
+  const hello = await api.post.hello.query({ text: "world" });
+  console.log("hello: ", hello);
+  const user = await api.strava.getLatestUser.query();
+  console.log("user: ", user);
   return (
     <div className="container flex flex-col items-center justify-center gap-6 px-4 py-6">
       <h1 className="text-3xl font-bold">Endurance is Art</h1>

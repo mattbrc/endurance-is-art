@@ -52,8 +52,7 @@ export default async function Page({ searchParams }: Props) {
     refreshToken: `${data.body.refreshToken}`,
     userId: user?.id,
   });
-  console.log("mutation: ", mutation);
-  // redirect("/home");
+  redirect("/home");
 
   return (
     <div>
