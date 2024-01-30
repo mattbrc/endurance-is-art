@@ -27,14 +27,9 @@ export function MenuDropdown({ items, children }: MainNavProps) {
           <Icons.menu size={20} />
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-48" align="start">
-          {/* <div className="flex items-center justify-start gap-2 p-2">
-            <div className="flex flex-col space-y-1 leading-none">
-              <p className="font-bold">AG Studio</p>
-            </div>
-          </div> */}
           <DropdownMenuItem>
             <Link href="/home" className="text-md font-bold">
-              AG Studio
+              EiA
             </Link>
           </DropdownMenuItem>
           <DropdownMenuSeparator />
@@ -42,17 +37,14 @@ export function MenuDropdown({ items, children }: MainNavProps) {
             <Link href="/home">Home</Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
-            <Link href="/home/training">Training</Link>
+            <Link href="/home/heatmap">View Heatmaps</Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
-            <Link href="/home/bookclub">Bookclub</Link>
+            <Link href="/home/bookclub">Shop</Link>
           </DropdownMenuItem>
-          <DropdownMenuItem className="text-zinc-500" asChild>
-            <Link href="">Nutrition</Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem className="text-zinc-500" asChild>
+          {/* <DropdownMenuItem className="text-zinc-500" asChild>
             <Link href="">Settings</Link>
-          </DropdownMenuItem>
+          </DropdownMenuItem> */}
           <DropdownMenuItem asChild>
             <Link href="/home/about">About</Link>
           </DropdownMenuItem>

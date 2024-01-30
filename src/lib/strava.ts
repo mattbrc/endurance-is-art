@@ -4,9 +4,8 @@ export const getStravaAuthUrl = () => {
 
 // 'https://www.strava.com/api/v3/oauth/authorize?client_id=7694&scope=activity%3Aread_all%2Cprofile%3Aread_all&response_type=code&redirect_uri=https%3A%2F%2Fwww.vite.bike%2Fapi%2Fauth%2Fcallback%2Fstrava&approval_prompt=auto&state=vv4Bsq1twaPBylbhbAE2rOXP23nmPiv_oKAUVXhrwgE'
 
-export const getAccessToken = async () => {
+export const getAccessToken = async (refreshToken: string | undefined) => {
   const TOKEN_ENDPOINT = "https://www.strava.com/oauth/token"
-  const refreshToken = '7e5aca9d02edef134c3c8177b6f455fcd25cd106'
   const body = JSON.stringify({
     client_id: process.env.NEXT_PUBLIC_STRAVA_CLIENT_ID,
     client_secret: process.env.STRAVA_CLIENT_SECRET,
@@ -53,4 +52,3 @@ export const getRefreshToken = async (code: string | undefined ) => {
     }
   }
 };
-

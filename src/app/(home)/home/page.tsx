@@ -46,7 +46,15 @@ export default async function Page() {
         {query[0] ? <StravaConnected /> : <Strava />}
         <h2 className="font-mono text-xl font-extrabold">Step 2:</h2>
         <Link href="/home/heatmap">
-          <Button>View Heatmaps</Button>
+          <Button className="w-40">View Heatmaps</Button>
+        </Link>
+        <h2 className="font-mono text-xl font-extrabold">Step 3:</h2>
+        <Link href="/home/heatmap">
+          <Button className="w-40">Customize</Button>
+        </Link>
+        <h2 className="font-mono text-xl font-extrabold">Step 4:</h2>
+        <Link href="/home/heatmap">
+          <Button className="w-40">Order</Button>
         </Link>
       </div>
     </div>

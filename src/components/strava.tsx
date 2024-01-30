@@ -10,7 +10,7 @@ export default function Strava() {
   return (
     <div>
       <Link href={getStravaAuthUrl()}>
-        <Button>Connect Strava</Button>
+        <Button className="w-40">Connect Strava</Button>
       </Link>
     </div>
   );
@@ -18,5 +18,9 @@ export default function Strava() {
 
 export function StravaConnected() {
   // const notify = () => toast.success("Strava successfully connected!");
-  return <Button disabled={true}>✅ Strava Connected</Button>;
+  return (
+    <Button className="w-40" disabled={true}>
+      ✅ Strava Connected
+    </Button>
+  );
 }
